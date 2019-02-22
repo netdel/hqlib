@@ -994,11 +994,6 @@ class PrivatePlatformRESTClient(PlatformRESTClient):
         result = self._send("GET", endpoint, params, version or "3", **kwargs)
         return result
 
-    # def fetch_my_trades_history(self, symbol, limit=None, from_item=None, to_item=None,
-    #                             sorting=None, is_use_max_limit=False, version=None, **kwargs):
-    #     pass
-
-    # Order (private)
 
     def create_order(self, symbol, order_type, direction, price=None, amount=None, is_test=False,
                      version=None, **kwargs):

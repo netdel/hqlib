@@ -4,6 +4,7 @@ from hyperquant.api import Platform
 from hyperquant.clients.binance import BinanceRESTClient, BinanceWSClient
 from hyperquant.clients.bitfinex import BitfinexRESTClient, BitfinexWSClient
 from hyperquant.clients.bitmex import BitMEXRESTClient, BitMEXWSClient
+from hyperquant.clients.okex import OkexRESTClient
 
 # temp
 # if not settings.configured:
@@ -15,6 +16,7 @@ _rest_client_class_by_platform_id = {
     Platform.BINANCE: BinanceRESTClient,
     Platform.BITFINEX: BitfinexRESTClient,
     Platform.BITMEX: BitMEXRESTClient,
+    Platform.OKEX: OkexRESTClient
 }
 
 _ws_client_class_by_platform_id = {

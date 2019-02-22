@@ -17,6 +17,7 @@ settings.configure(DEBUG=True, default_settings=hqlib_settings)
 
 # Change to Platform.BINANCE to see example
 TEST_PLATFORM = Platform.OKEX
+# TEST_PLATFORM = Platform.BINANCE
 
 TEST_SYMBOLS = {
     Platform.BINANCE: ['ETHBTC', 'BTCUSDT'],
@@ -27,15 +28,22 @@ client = utils.create_rest_client(platform_id=TEST_PLATFORM)
 print('\n\nTrade history\n\n')
 print(client.fetch_trades_history(TEST_SYMBOLS[TEST_PLATFORM][0], limit=10))
 print('\n\n---------------------')
-print('\n\nCandles\n\n')
-print(client.fetch_candles(TEST_SYMBOLS[TEST_PLATFORM][0], Interval.MIN_1, limit=10))
-print('\n\n---------------------')
+# print('\n\nCandles\n\n')
+# print(client.fetch_candles(TEST_SYMBOLS[TEST_PLATFORM][0], Interval.MIN_1, limit=10))
+# print('\n\n---------------------')
 
-client = utils.create_ws_client(platform_id=TEST_PLATFORM)
-client.on_data_item = lambda item: print(item)  # print received parsed objects
-client.subscribe(endpoints=[Endpoint.TRADE, Endpoint.CANDLE], symbols=TEST_SYMBOLS[TEST_PLATFORM],
-                 interval=Interval.MIN_1)
+# client = utils.create_ws_client(platform_id=TEST_PLATFORM)
 
-print('\n\nWebsocket data\n\n')
+#
+# def on_data_item(item):
+#     print(item)
+#
+#
+# client.on_data_item = on_data_item  # print received parsed objects
+# client.subscribe(endpoints=[Endpoint.TRADE, Endpoint.CANDLE],
+#                  symbols=TEST_SYMBOLS[TEST_PLATFORM],
+#                  interval=Interval.MIN_1)
+#
+# print('\n\nWebsocket data\n\n')
 # Sleep to display incoming websocket items from separate thread
 time.sleep(15)
